@@ -7,14 +7,25 @@
 
 // TODO 1: Use querySelector to assign EACH of the above 
 // elements to a variable, just like this:
-let searchButton = document.querySelector('#search-button')
+let searchButton = document.querySelector("#search-button")
+let textboxElement = document.querySelector("#textbox")
+let sentenceElement = document.querySelector("#sentence")
+let searchResultsElement = document.querySelector("#search-results")
 
 searchButton.addEventListener('click', function () {
- 
-  // TODO 2: Write an IF statement which determines whether
-  // the user-supplied string from #textbox is included in
-  // the #sentence string.
-  
+  const searchString = textboxElement.value
+  const sentenceString = sentenceElement.innerText
+  if (sentenceString.includes(searchString)) {
+    searchResultsElement.innerText = "Match was Found"
+  } else {
+    searchResultsElement.innerText = "Match was not Found"
+  }
+})
+
+
+
+// TODO 2: Write an IF statement which determines whether
+
   // Hint 1: To get the user-supplied string from the input 
   // box (#textbox), use the property .value on the variable
   // you assigned the textbox element to.
@@ -32,8 +43,6 @@ searchButton.addEventListener('click', function () {
   // with a success message (such as, "A match was found!"),
   // otherwise update it with a failure message (such as, 
   // "No results. Too bad!")
-
-})
 
 // STRETCH GOALS (easiest to hardest):
 //
